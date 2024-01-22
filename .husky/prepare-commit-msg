@@ -1,0 +1,21 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Get the current branch name
+current_branch=$(git symbolic-ref --short HEAD)
+
+# Extract the commit message from the commit message file
+commit_message_file="$1"
+commit_message=$(cat "$commit_message_file")
+
+# Check if the branch name starts with one of the specified prefixes
+if [[ "$current_branch" =~ ^(feat|fix|chore|refactor|setting|styles|docs|test)/ ]]; then
+  # Extract the prefix from the branch name
+  branch_prefix="${BASH_REMATCH[1]}"
+
+  # Check if the commit message already starts with the branch prefix
+  if ! [[ "$commit_message" =~ ^"$branch_prefix": ]]; then
+    # If not, prepend the branch prefix to the commit message
+    echo "$branch_prefix: $commit_message" > "$commit_message_file"
+  fi
+fi
