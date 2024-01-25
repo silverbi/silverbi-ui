@@ -1,7 +1,16 @@
 {
   "name": "silverbi-ui",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "1.0.0",
+  "description": "silverbi UI kit is the design system for various product.",
+  "keywords": [
+    "silverbi",
+    "uikit",
+    "react",
+    "UI components",
+    "design system",
+    "atomic design"
+  ],
   "type": "module",
   "scripts": {
     "prepare": "husky install",
@@ -14,6 +23,13 @@
     "build-storybook": "storybook build",
     "lint:fix": "eslint --fix --ext .js,.jsx"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:silverbi/silverbi-ui.git"
+  },
+  "author": "silverbi <silverbi.404@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://silverbi.me",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
